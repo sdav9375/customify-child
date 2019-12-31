@@ -39,3 +39,13 @@ function mpp_enqueue_datepicker() {
 }
 add_action( 'wp_enqueue_scripts', 'mpp_enqueue_datepicker' );
 	
+// Don't allow subscribers access to wp-admin backend
+function restrict_access_admin_panel(){
+    global $current_user;
+    get_currentuserinfo();
+    if ($current_user->user_level <  2 && $_SERVER['PHP_SELF'] != '/wp-admin/admin-ajax.php') {
+        wp_redirect( get_bloginfo('url') );
+        exit;
+    }
+}
+add_action('admin_init', 'restrict_access_admin_panel', 1);
