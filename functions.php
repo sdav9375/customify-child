@@ -49,3 +49,30 @@ function restrict_access_admin_panel(){
     }
 }
 add_action('admin_init', 'restrict_access_admin_panel', 1);
+
+
+function bp_ant_hide_tabs() {
+	global $bp;
+	if( class_exists( 'buddypress' )  ) :
+  
+	if ( bp_is_user() && !is_super_admin() && !bp_is_my_profile() ) {
+
+
+	bp_core_remove_nav_item( 'profile' );
+	bp_core_remove_nav_item( 'activity' );
+	} 
+	if ( bp_is_user() && !is_super_admin() && bp_is_my_profile() ) {
+			bp_core_remove_subnav_item( 'profile', 'view' );
+		
+	}
+	endif;
+}
+add_action( 'bp_setup_nav', 'bp_ant_hide_tabs', 15 );
+
+function bp_ant_rename_profile_tabs() {
+  
+      buddypress()->members->nav->edit_nav( array( 'name' => __( 'Projects', 'textdomain' ) ), 'projects' );
+  
+}
+add_action( 'bp_actions', 'bp_ant_rename_profile_tabs' );
+
