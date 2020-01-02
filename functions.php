@@ -76,3 +76,5 @@ function bp_ant_rename_profile_tabs() {
 }
 add_action( 'bp_actions', 'bp_ant_rename_profile_tabs' );
 
+// Disable public messaging
+add_filter('bp_get_send_public_message_button', '__return_false');

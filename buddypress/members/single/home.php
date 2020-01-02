@@ -10,7 +10,6 @@
 	<?php bp_nouveau_member_hook( 'before', 'home_content' ); ?>
 
 	<div id="item-header" role="complementary" data-bp-item-id="<?php echo esc_attr( bp_displayed_user_id() ); ?>" data-bp-item-component="members" class="users-header single-headers">
-home.php
 		<?php bp_nouveau_member_header_template_part(); ?>
 
 	</div><!-- #item-header -->
