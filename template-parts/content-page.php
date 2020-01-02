@@ -13,7 +13,6 @@
 		<header class="entry-header">
       <?php the_title( '<h1 class="entry-title h3">', '</h1>' ); ?>
       <?php echo xprofile_get_field_data( $Bio); ?>
-      <h1>TEST HEADER</h1>
     </header>
     <!-- .entry-header -->
 	<?php } ?>

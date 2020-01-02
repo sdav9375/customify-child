@@ -15,10 +15,6 @@
 ?></h2>
  -->
 
-
-<h1>============HEYYYYYY NEW 
-  THEME!!!===profile-loop.php=============================</h1>
-
 <?php bp_nouveau_xprofile_hook( 'before', 'loop_content' ); ?>
 
 <?php if ( bp_has_profile() ) : ?>
