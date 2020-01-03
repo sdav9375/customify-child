@@ -78,3 +78,17 @@ add_action( 'bp_actions', 'bp_ant_rename_profile_tabs' );
 
 // Disable public messaging
 add_filter('bp_get_send_public_message_button', '__return_false');
+
+/**
+ * Filter display name to show BP custom field display name
+ * 
+ */
+
+add_filter( 'bp_core_get_user_displayname', 'ant_get_display_name', 10, 2 );
+add_filter( 'bp_get_member_name', 'ant_get_display_name', 10, 2 );
+
+function ant_get_display_name ( $display_name, $user_id ) {
+	
+	return	$lastname= bp_get_profile_field_data('field=Display Name&user_id='.$user_id);	
+}
+

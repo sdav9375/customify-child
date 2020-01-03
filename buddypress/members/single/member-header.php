@@ -24,7 +24,6 @@
 
 	<?php if ( bp_nouveau_member_has_meta() ) : ?>
 		<div class="item-meta">
-fdfdfd
 			<?php bp_nouveau_member_meta(); ?>
 
 		</div><!-- #item-meta -->
