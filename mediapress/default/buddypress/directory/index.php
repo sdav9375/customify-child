@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<?php do_action( 'bp_before_directory_mediapress_page' ); echo "fdfdfhdhfkjdhkfjhdkjhfkjdhkfjhdkjhf";?>
+<?php do_action( 'bp_before_directory_mediapress_page' );?>
 
 <div id="buddypress" class="mpp-directory-contents">
 
