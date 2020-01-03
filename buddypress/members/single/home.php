@@ -8,7 +8,9 @@
 ?>
 
 	<?php bp_nouveau_member_hook( 'before', 'home_content' ); ?>
-
+	<header class="display-name">
+		<h1><?php echo esc_attr( bp_get_profile_field_data('field=Display Name&user_id='. bp_displayed_user_id() ));?></h1>
+	</header>
 	<div id="item-header" role="complementary" data-bp-item-id="<?php echo esc_attr( bp_displayed_user_id() ); ?>" data-bp-item-component="members" class="users-header single-headers">
 		<?php bp_nouveau_member_header_template_part(); ?>
 
