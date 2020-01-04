@@ -92,3 +92,13 @@ function ant_get_display_name ( $display_name, $user_id ) {
 	return	$lastname= bp_get_profile_field_data('field=Display Name&user_id='.$user_id);	
 }
 
+add_filter( 'get_the_date', 'ant_modify_get_the_date', 10, 3 ); 
+function ant_modify_get_the_date (  $value, $the_date, $post ) {
+	if ( $post->post_type == 'anttopic' ) {
+		return date( 'F Y', strtotime( $value ) );
+	} else {
+		return $value;
+	}
+	
+}
+
