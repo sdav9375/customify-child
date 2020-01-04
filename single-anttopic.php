@@ -20,9 +20,12 @@ get_header(); ?>
 					do_action( "customify_single_{$post_type}_content" );
 					
 				} else {
-					customify_single_post();
-					echo date( 'F Y', strtotime( get_the_date() ) ) ;
-
+					customify_single_post(); ?>
+					<span class="date">
+					<?php echo date( 'F Y', strtotime( get_the_date() ) ) ; ?>
+					</span>
+					
+					<?php
 					$post_meta = get_post_meta( get_the_ID(), 'projects_assigned', false );
 					$project_array = array();
 					foreach($post_meta as $project) {
