@@ -85,7 +85,7 @@ add_filter('bp_get_send_public_message_button', '__return_false');
  */
 
 add_filter( 'bp_core_get_user_displayname', 'ant_get_display_name', 10, 2 );
-add_filter( 'bp_get_member_name', 'ant_get_display_name', 10, 2 );
+//add_filter( 'bp_get_member_name', 'ant_get_display_name', 10, 2 );
 
 function ant_get_display_name ( $display_name, $user_id ) {
 	
