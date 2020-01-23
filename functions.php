@@ -101,5 +101,3 @@ function ant_modify_get_the_date (  $value, $the_date, $post ) {
 	}
 	
 }
-
-define ( 'BP_AVATAR_ORIGINAL_MAX_FILESIZE', 5120000 );
