@@ -102,21 +102,4 @@ function ant_modify_get_the_date (  $value, $the_date, $post ) {
 	
 }
 
-/**
- * Limit BuddyPress file size.
- *
- * @param int    $size size in bytes.
- * @param string $type upload type(avatar, cover_upload).
- *
- * @return int
- */
-function ant_limit_buddypress_file_size( $size, $type ) {
- 
-    if ( 'avatar' == $type ) {
-        $size = 5120000;     }
- 
-    return $size;
-}
- 
-add_filter( 'bp_attachments_get_max_upload_file_size', 'ant_limit_buddypress_file_size', 10,2 );
 
