@@ -30,13 +30,19 @@ get_header(); ?>
 					$project_array = array();
 					foreach($post_meta as $project) {
 						$project_array[] = (int) $project['ID'];
-			        
 					}
 					
-					$string = implode(',', $project_array);
-					$shortcode = '[mpp-list-gallery search_terms="" in="' .  $string . '" show_creator=1  before_creator="By: " ]';
+                    $string = implode(',', $project_array);
+
+                    if ( $string != 0 ) {
+                        
+                        $shortcode = '[mpp-list-gallery search_terms="" in="' .  $string . '" show_creator=1  before_creator="By: " ]';
+                                            
+                        echo do_shortcode( $shortcode, false );
+                    } else {
+                        echo "<p class='no-projects'>This topic contains no projects</p>";
+                    }
 					
-					echo do_shortcode( $shortcode, false );
 			}
 			endwhile; // End of the loop.
 		}

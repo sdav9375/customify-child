@@ -101,5 +101,9 @@ function ant_modify_get_the_date (  $value, $the_date, $post ) {
 	}
 	
 }
+function ant_activity_excerpt_length() {
+    return 2000;
+}
+add_filter('bp_activity_excerpt_length', 'ant_activity_excerpt_length', 10);
 
-
+ 
