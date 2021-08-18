@@ -9,6 +9,7 @@ function enqueue_parent_styles() {
   wp_enqueue_style( 'customify-child-style', get_stylesheet_directory_uri().'/style.css' );
 }
 
+define('EDD_SLUG', 'art');
 define( 'MPP_GALLERY_SLUG', 'projects');
 
 /**
