@@ -8,8 +8,7 @@ function enqueue_parent_styles() {
   wp_dequeue_style( 'customify-style' );
   wp_enqueue_style( 'customify-child-style', get_stylesheet_directory_uri().'/style.css' );
 }
-
-define('EDD_SLUG', 'art');
+define('EDD_SLUG', 'artwork');
 define( 'MPP_GALLERY_SLUG', 'projects');
 
 /**
@@ -39,7 +38,7 @@ function mpp_enqueue_datepicker() {
     wp_enqueue_style( 'jquery-ui' );  
 }
 add_action( 'wp_enqueue_scripts', 'mpp_enqueue_datepicker' );
-	
+  
 // Don't allow subscribers access to wp-admin backend
 function restrict_access_admin_panel(){
     global $current_user;
@@ -53,22 +52,22 @@ add_action('admin_init', 'restrict_access_admin_panel', 1);
 
 
 function bp_ant_hide_tabs() {
-	global $bp;
-	if( class_exists( 'buddypress' )  ) :
+  global $bp;
+  if( class_exists( 'buddypress' )  ) :
   
-	if ( bp_is_user() && !is_super_admin() && !bp_is_my_profile() ) {
+  if ( bp_is_user() && !is_super_admin() && !bp_is_my_profile() ) {
 
 
-	bp_core_remove_nav_item( 'profile' );
-	bp_core_remove_nav_item( 'activity' );
-	} 
-	if ( bp_is_user() && !is_super_admin() && bp_is_my_profile() ) {
-			bp_core_remove_subnav_item( 'profile', 'view' );
-		
-	}
-	endif;
+  bp_core_remove_nav_item( 'profile' );
+  bp_core_remove_nav_item( 'activity' );
+  } 
+  if ( bp_is_user() && !is_super_admin() && bp_is_my_profile() ) {
+    //	bp_core_remove_subnav_item( 'profile', 'view' );
+    
+  }
+  endif;
 }
-add_action( 'bp_setup_nav', 'bp_ant_hide_tabs', 15 );
+//add_action( 'bp_setup_nav', 'bp_ant_hide_tabs', 15 );
 
 function bp_ant_rename_profile_tabs() {
   
@@ -89,18 +88,18 @@ add_filter( 'bp_core_get_user_displayname', 'ant_get_display_name', 10, 2 );
 //add_filter( 'bp_get_member_name', 'ant_get_display_name', 10, 2 );
 
 function ant_get_display_name ( $display_name, $user_id ) {
-	
-	return	$lastname= bp_get_profile_field_data('field=Display Name&user_id='.$user_id);	
+  
+  return	$lastname= bp_get_profile_field_data('field=Display Name&user_id='.$user_id);	
 }
 
 add_filter( 'get_the_date', 'ant_modify_get_the_date', 10, 3 ); 
 function ant_modify_get_the_date (  $value, $the_date, $post ) {
-	if ( $post->post_type == 'anttopic' ) {
-		return date( 'F Y', strtotime( $value ) );
-	} else {
-		return $value;
-	}
-	
+  if ( $post->post_type == 'anttopic' ) {
+    return date( 'F Y', strtotime( $value ) );
+  } else {
+    return $value;
+  }
+  
 }
 function ant_activity_excerpt_length() {
     return 2000;
