@@ -46,9 +46,9 @@ get_header(); ?>
 								<a href="<?php echo bp_core_get_user_domain( $user_id );?>">
 								  <?php echo bp_core_fetch_avatar( array( 'item_id' => $user_id, 'class' => 'avatar', 'type' => 'full',  ) );?>
 								</a>
-							    <a class="vendor-store" href="<?php echo EDD_FES()->vendors->get_vendor_store_url( $user_id ); ?>"> Shop </a> 
 								<a  class="author" href="<?php echo bp_core_get_user_domain( $user_id );?>">
 									 <?php echo get_the_author_meta ( 'user_firstname', $user_id );?></a>
+								<a class="vendor-store" href="<?php echo EDD_FES()->vendors->get_vendor_store_url( $user_id ); ?>"> Shop →</a> 
 									 
 								
 							</div>
