@@ -22,13 +22,10 @@ get_header(); ?>
 			<div class="entry-content">
 				<?php
 				the_content();
-				// if ( is_plugin_active( "edd_fes/edd-fes.php" ) ) {
-					
-				
+
 				$vendor_db = new FES_DB_Vendors();
 				$args = array(
 					'number'  => 1000,
-					//'offset'  => ( $this->step -1 ) * $this->per_step,
 					'orderby' => 'id',
 					'order'   => 'DESC'
 				);
@@ -38,12 +35,13 @@ get_header(); ?>
 				if ( $vendors ) {
 		
 					foreach ( $vendors as $vendor ) {
-						// foreach get products
+					
 						$user_id = ! empty( $vendor->user_id ) ? intval( $vendor->user_id ) : 0;
 						$products = EDD_FES()->vendors->get_all_products( $user_id );
 						
-						
 						if ( !empty( $products ) ){ ?>
+							<div class="vendor-row">
+								
 							<div class="vendor-profile">
 								<a href="<?php echo bp_core_get_user_domain( $user_id );?>">
 								  <?php echo bp_core_fetch_avatar( array( 'item_id' => $user_id, 'class' => 'avatar', 'type' => 'full',  ) );?>
@@ -54,11 +52,12 @@ get_header(); ?>
 									 
 								
 							</div>
-							<?php echo do_shortcode("[downloads author='. $user_id .' number='6' columns='3' ]");
-						}
+							<?php echo do_shortcode("[downloads author='. $user_id .' number='6' columns='3' ]"); ?>
+							</div>
+						<?php }
 					}
 				}
-				// }
+	
 				wp_link_pages(
 					array(
 						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'customify' ),
