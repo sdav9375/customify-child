@@ -106,4 +106,26 @@ function ant_activity_excerpt_length() {
 }
 add_filter('bp_activity_excerpt_length', 'ant_activity_excerpt_length', 10);
 
- 
+ function ant_exclude_users( $args ) {
+   // do not exclude in admin.
+   if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+       return $args;
+   }
+
+   $excluded = isset( $args['exclude'] ) ? $args['exclude'] : array();
+
+   if ( ! is_array( $excluded ) ) {
+       $excluded = explode( ',', $excluded );
+   }
+
+   // Change it with the actual numeric user ids.
+   $user_ids = array( 6 ); // user ids to exclude.
+
+   $excluded = array_merge( $excluded, $user_ids );
+
+   $args['exclude'] = $excluded;
+
+   return $args;
+}
+
+add_filter( 'bp_after_has_members_parse_args', 'ant_exclude_users' );
