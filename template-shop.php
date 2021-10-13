@@ -57,13 +57,6 @@ get_header(); ?>
 						<?php }
 					}
 				}
-	
-				wp_link_pages(
-					array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'customify' ),
-						'after'  => '</div>',
-					)
-				);
 				?>
 			</div><!-- .entry-content -->
 		
