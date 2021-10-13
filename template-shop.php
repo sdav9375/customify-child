@@ -48,11 +48,11 @@ get_header(); ?>
 								</a>
 								<a  class="author" href="<?php echo bp_core_get_user_domain( $user_id );?>">
 									 <?php echo get_the_author_meta ( 'user_firstname', $user_id );?></a>
-								<a class="vendor-store" href="<?php echo EDD_FES()->vendors->get_vendor_store_url( $user_id ); ?>"> Shop →</a> 
+								<a class="vendor-store" href="<?php echo EDD_FES()->vendors->get_vendor_store_url( $user_id ); ?>">Shop</a> 
 									 
 								
 							</div>
-							<?php echo do_shortcode("[downloads author='" . $user_id . "' number='6' columns='3' ]"); ?>
+							<?php echo do_shortcode("[downloads author='" . $user_id . "' number='3' columns='1' ]"); ?>
 							</div>
 						<?php }
 					}
