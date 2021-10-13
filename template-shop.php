@@ -52,7 +52,7 @@ get_header(); ?>
 									 
 								
 							</div>
-							<?php echo do_shortcode("[downloads author='" . $user_id . "' number='3' columns='1' ]"); ?>
+							<?php echo do_shortcode("[downloads author='" . $user_id . "' number='3' columns='1' pagination=false ]"); ?>
 							</div>
 						<?php }
 					}
