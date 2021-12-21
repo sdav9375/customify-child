@@ -48,7 +48,7 @@ function restrict_access_admin_panel(){
         exit;
     }
 }
-add_action('admin_init', 'restrict_access_admin_panel', 1);
+//add_action('admin_init', 'restrict_access_admin_panel', 1);
 
 
 function bp_ant_hide_tabs() {
